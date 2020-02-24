@@ -22,3 +22,6 @@ As it is on a early access stage, it doesn't show a download progress for now, a
     ~/downTube 1.0a$ ./downTube
 
 This way the program shows it's window and a progress on the console while downloading.
+
+## Releases
+[downTube](https://github.com/GearFox98/downTube/releases)
