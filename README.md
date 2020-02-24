@@ -1,2 +1,2 @@
-# dlTube
-A youtube-dl graphic shell write in QT5 C++
+# downTube
+A youtube-dl graphic shell written in QT5 C++
