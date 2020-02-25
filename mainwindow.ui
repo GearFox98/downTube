@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>439</width>
-    <height>112</height>
+    <width>464</width>
+    <height>103</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -23,9 +23,9 @@
    <widget class="Line" name="line">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>50</y>
-      <width>421</width>
+      <x>0</x>
+      <y>40</y>
+      <width>459</width>
       <height>16</height>
      </rect>
     </property>
@@ -36,9 +36,9 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>11</y>
-      <width>421</width>
+      <x>1</x>
+      <y>1</y>
+      <width>451</width>
       <height>36</height>
      </rect>
     </property>
@@ -51,6 +51,22 @@
       </widget>
      </item>
      <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
       <widget class="QLineEdit" name="urlBox">
        <property name="text">
         <string notr="true"/>
@@ -60,7 +76,7 @@
      <item>
       <widget class="QPushButton" name="downloadButton">
        <property name="text">
-        <string>Descargar</string>
+        <string>Download</string>
        </property>
       </widget>
      </item>
@@ -69,9 +85,9 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>70</y>
-      <width>421</width>
+      <x>1</x>
+      <y>60</y>
+      <width>451</width>
       <height>36</height>
      </rect>
     </property>
@@ -79,7 +95,7 @@
      <item>
       <widget class="QLabel" name="destinationLabel">
        <property name="text">
-        <string>Destino</string>
+        <string>Destination</string>
        </property>
       </widget>
      </item>
@@ -100,36 +116,36 @@
      <item>
       <widget class="QComboBox" name="formatBox">
        <property name="currentText">
-        <string notr="true">Mejor</string>
+        <string notr="true">Better</string>
        </property>
        <item>
         <property name="text">
-         <string>Mejor</string>
+         <string>Better</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>Peor</string>
+         <string>Worse</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>Mejor Video</string>
+         <string>Better Video</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>Peor Video</string>
+         <string>Worse Video</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>Mejor Audio</string>
+         <string>Best Audio</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>Peor Audio</string>
+         <string>Worse Audio</string>
         </property>
        </item>
       </widget>
