@@ -2,7 +2,6 @@
 #include "ui_mainwindow.h"
 #include "error.h"
 #include "success.h"
-#include "derror.h"
 #include <QProcess>
 
 using namespace std;
@@ -30,7 +29,6 @@ void MainWindow::on_downloadButton_clicked()
     }
     else {
         Success m_success;
-        dError m_error;
         string url, dUrl, format, query, queryName, name;
         int indexFormat;
         url = ui->urlBox->text().toStdString();
@@ -68,14 +66,11 @@ void MainWindow::on_downloadButton_clicked()
         process.start("youtube-dl");
         process.execute(query.data());
         process.waitForFinished(-1);
-        if(process.NormalExit){
+        if(process.NormalExit | process.CrashExit){
             m_success.show();
             m_success.exec();
         }
-        else if(process.CrashExit){
-            m_error.show();
-            m_error.exec();
-        }
+
 
         QString out = process.readAllStandardOutput();
         QString eOut = process.readAllStandardError();
