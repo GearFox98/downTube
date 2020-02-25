@@ -67,8 +67,6 @@ void MainWindow::on_downloadButton_clicked()
 
         QString out = process.readAllStandardOutput();
         QString eOut = process.readAllStandardError();
-
-        ui->consoleBox->setText(out);
     }
 }
 
