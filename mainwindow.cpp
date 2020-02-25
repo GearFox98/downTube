@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "error.h"
+#include <QProcess>
 
 using namespace std;
 
@@ -59,12 +60,20 @@ void MainWindow::on_downloadButton_clicked()
 
         query = "youtube-dl -o "+dUrl+"/'%(title)s.%(ext)s' -f "+format+" "+url;
 
-        system(query.data());
+        QProcess process;
+        process.start("youtube-dl");
+        process.execute(query.data());
+        process.waitForFinished(-1);
+
+        QString out = process.readAllStandardOutput();
+        QString eOut = process.readAllStandardError();
+
+        ui->consoleBox->setText(out);
     }
 }
 
 void MainWindow::on_optionsButton_clicked()
 {
-    destiny = QFileDialog::getSaveFileUrl().toString();
+    destiny = QFileDialog::getExistingDirectoryUrl().toString();
     ui->destinationBox->setText(destiny.remove(0,7)); //file:// = 7
 }
