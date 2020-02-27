@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>464</width>
-    <height>103</height>
+    <width>444</width>
+    <height>337</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,135 +19,186 @@
   <property name="windowTitle">
    <string>downTube</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/icon.png</normaloff>:/icon.png</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="Line" name="line">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>40</y>
-      <width>459</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>1</x>
       <y>1</y>
-      <width>451</width>
-      <height>36</height>
+      <width>441</width>
+      <height>331</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QLabel" name="urlLabel">
-       <property name="text">
-        <string notr="true">URL</string>
-       </property>
-      </widget>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Minimum</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>16</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="urlLabel">
+         <property name="text">
+          <string notr="true">URL</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>18</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="urlBox">
+         <property name="text">
+          <string notr="true"/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="downloadButton">
+         <property name="text">
+          <string notr="true"/>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/play.png</normaloff>:/play.png</iconset>
+         </property>
+         <property name="default">
+          <bool>false</bool>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="stopDownload">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string notr="true"/>
+         </property>
+         <property name="icon">
+          <iconset resource="resources.qrc">
+           <normaloff>:/stop.png</normaloff>:/stop.png</iconset>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
-     <item>
-      <spacer name="horizontalSpacer">
+     <item row="2" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QLabel" name="destinationLabel">
+         <property name="text">
+          <string>Destination</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="destinationBox">
+         <property name="text">
+          <string notr="true"/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="optionsButton">
+         <property name="text">
+          <string notr="true">...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="formatBox">
+         <property name="currentText">
+          <string notr="true">Better</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>Better</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Worse</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Better Video</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Worse Video</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Best Audio</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Worse Audio</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="3" column="0">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QPlainTextEdit" name="consoleBox">
+         <property name="acceptDrops">
+          <bool>false</bool>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="plainText">
+          <string notr="true"/>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="1" column="0">
+      <widget class="Line" name="line">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="urlBox">
-       <property name="text">
-        <string notr="true"/>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="downloadButton">
-       <property name="text">
-        <string>Download</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>1</x>
-      <y>60</y>
-      <width>451</width>
-      <height>36</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <item>
-      <widget class="QLabel" name="destinationLabel">
-       <property name="text">
-        <string>Destination</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="destinationBox">
-       <property name="text">
-        <string notr="true"/>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QToolButton" name="optionsButton">
-       <property name="text">
-        <string notr="true">...</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QComboBox" name="formatBox">
-       <property name="currentText">
-        <string notr="true">Better</string>
-       </property>
-       <item>
-        <property name="text">
-         <string>Better</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Worse</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Better Video</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Worse Video</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Best Audio</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Worse Audio</string>
-        </property>
-       </item>
       </widget>
      </item>
     </layout>
@@ -155,6 +206,8 @@
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
