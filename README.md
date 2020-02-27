@@ -6,17 +6,17 @@ Looking for the [downTube releases](https://github.com/GearFox98/downTube/releas
 
 ## Dependencies
 
-As a youtube-dl grhaphic interface this program depends on it. Before running downTube make sure you have youtube-dl
+As a youtube-dl graphic interface this program depends on it. Before running downTube make sure you have youtube-dl
 
     youtube-dl --version
 
-This should give you a response, if not, try intalling it
+This should give you a response, if not, try intalling it:
 
-### APT
+#### APT
 
     sudo apt-get install youtube-dl
 
-### Snap
+#### Snap
 
     sudo snap install youtube-dl
 
