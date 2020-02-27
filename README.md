@@ -25,6 +25,10 @@ This should give you a response, if not, try intalling it:
 Simply as doing double click on downTube on it's folder, calling it from a terminal on it's root folder.
 
     user@user-pc:~/downTube Folder$ ./downTube
+    
+If you installed it from the .deb package open a terminal and call it.
+
+    user@user-pc:~$ downtube
  
  ## Changelog
  
