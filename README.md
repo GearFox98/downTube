@@ -2,6 +2,8 @@
 
 A youtube-dl graphic shell written in QT5 C++
 
+Looking for the [downTube releases](https://github.com/GearFox98/downTube/releases)?
+
 ## Dependencies
 
 As a youtube-dl grhaphic interface this program depends on it. Before running downTube make sure you have youtube-dl
@@ -32,6 +34,3 @@ Simply as doing double click on downTube on it's folder, calling it from a termi
  > * Removed the "Finished" window
  > * New button in the interface to stop download
  > * Icons added
-
-## Releases
-[downTube](https://github.com/GearFox98/downTube/releases)
