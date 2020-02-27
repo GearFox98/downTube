@@ -1,12 +1,13 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "error.h"
-#include "success.h"
 #include <QProcess>
+#include <QtWidgets>
 
 using namespace std;
 
 static QString destiny;
+static QProcess *process(new QProcess);
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -28,7 +29,6 @@ void MainWindow::on_downloadButton_clicked()
         e.exec();
     }
     else {
-        Success m_success;
         string url, dUrl, format, query, queryName, name;
         int indexFormat;
         url = ui->urlBox->text().toStdString();
@@ -60,25 +60,41 @@ void MainWindow::on_downloadButton_clicked()
 
         system(queryName.data());*/
 
-        query = "youtube-dl -o "+dUrl+"/'%(title)s.%(ext)s' -f "+format+" "+url;
+        query = "-o "+dUrl+"/%(title)s.%(ext)s -f "+format+" "+url;
+        QString Query = query.data();
 
-        QProcess process;
-        process.start("youtube-dl");
-        process.execute(query.data());
-        process.waitForFinished(-1);
-        if(process.NormalExit | process.CrashExit){
-            m_success.show();
-            m_success.exec();
-        }
-
-
-        QString out = process.readAllStandardOutput();
-        QString eOut = process.readAllStandardError();
+        process->setProgram("youtube-dl");
+        connect(process, &QProcess::readyReadStandardError, this, &MainWindow::onReadyReadStandardError);
+        connect(process, &QProcess::readyReadStandardOutput, this, &MainWindow::readyReadStandardOutput);
+        connect(process, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &MainWindow::onFinished);
+        process->setArguments(Query.split(" "));
+        process->start();
+        ui->downloadButton->setEnabled(false);
+        ui->stopDownload->setEnabled(true);
     }
+}
+
+void MainWindow::onReadyReadStandardError(){
+    ui->consoleBox->appendPlainText(process->readAllStandardError().constData());
+}
+
+void MainWindow::readyReadStandardOutput(){
+    ui->consoleBox->appendPlainText(process->readAllStandardOutput().constData());
+}
+
+void MainWindow::onFinished(){
+    ui->downloadButton->setEnabled(true);
+    ui->stopDownload->setEnabled(false);
 }
 
 void MainWindow::on_optionsButton_clicked()
 {
     destiny = QFileDialog::getExistingDirectoryUrl().toString();
     ui->destinationBox->setText(destiny.remove(0,7)); //file:// = 7
+}
+
+void MainWindow::on_stopDownload_clicked()
+{
+    process->kill();
+    ui->downloadButton->setEnabled(true);
 }
