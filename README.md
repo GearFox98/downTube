@@ -29,6 +29,8 @@ Simply as doing double click on downTube on it's folder, calling it from a termi
 If you installed it from the .deb package open a terminal and call it.
 
     user@user-pc:~$ downtube
+    
+Or simply look for it on your launcher.
  
  ## Changelog
  
@@ -38,3 +40,4 @@ If you installed it from the .deb package open a terminal and call it.
  > * Removed the "Finished" window
  > * New button in the interface to stop download
  > * Icons added
+ > * Launcher added
